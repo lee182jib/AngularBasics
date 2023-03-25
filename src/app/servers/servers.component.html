@@ -1,0 +1,44 @@
+<label for="">Server Name</label>
+<!-- <input 
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+> -->
+<input 
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName"
+>
+<!-- <p>{{ serverName }}</p> -->
+<button class="btn btn-primary"
+ [disabled]="!allowNewServer"
+ (click)="onCreateServer()">Add Server</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+
+<p *ngIf="serverCreated">Server was created. Server is called {{ serverName }}</p>
+
+<!-- <ng-template #noServer>
+  <p>No server was created.</p>
+</ng-template>  -->
+
+
+<input type="text" class="form-control" [(ngModel)]="userName">
+<p>{{ userName }}</p>
+<button [disabled]="userName === ''" (click)="onNameClick()">add name</button>
+
+<app-server *ngFor="let server of servers"></app-server>
+
+
+<warning-alert></warning-alert>
+<success-alert></success-alert>
+
+<button (click)="onClick()">Display Details</button>
+<p *ngIf="showP">This is a p</p>
+
+<p  
+  [ngStyle]="{'background-color': click >= 5 ? 'blue' : 'white'}" 
+  [ngClass]="{moreThanFive: click >= 5}" 
+   *ngFor="let click of clicksArray"> {{ click }}
+  </p>
